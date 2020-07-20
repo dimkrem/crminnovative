@@ -3,10 +3,7 @@ package gr.codehub.crminnovative.controller;
 import gr.codehub.crminnovative.model.Customer;
 import gr.codehub.crminnovative.service.CustomerService;
 import gr.codehub.crminnovative.service.CustomerServiceImpl;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,18 +21,22 @@ public class CrmController {
     }
 
     //end point poy episterefei ta dedomena
-    @RequestMapping("customers")
+    @GetMapping("customers")
     public List<Customer> getCustomers() {
         return customerService.getCustomer();
     }
 
-    @RequestMapping("add/{name}")
+    @PostMapping("add/{name}")
     public Customer addCustomer(@PathVariable String name) {
         return customerService.addCustomer((new Customer(name)));
     }
+    @PostMapping("addcustomer")
+    public Customer addCustomerAllDetails(@RequestBody Customer customer) {
+        return customerService.addCustomer(customer);
+    }
 
 
-    @RequestMapping("remove/{id}")
+    @DeleteMapping ("remove/{id}")
     public boolean deleteCustomer(@PathVariable int id) {
         return customerService.deleteCustomer(id);
     }
