@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 @Entity     // me to entity les oti h klash customer tha ginei table sth vash
 public class Customer {
     @Id
-    @GeneratedValue     //to id ayksanetai mono toy
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     //to id ayksanetai mono toy
     private int id;
     private String name;
     private String address;

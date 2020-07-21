@@ -3,12 +3,14 @@ package gr.codehub.crminnovative.service;
 import gr.codehub.crminnovative.model.Customer;
 import gr.codehub.crminnovative.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @Primary
+@Qualifier("ImplDB")
 public class CustomerServiceDbImpl implements CustomerService{
 
     @Autowired      // to fm vriskei to CustomerRepository kai syndeetai
