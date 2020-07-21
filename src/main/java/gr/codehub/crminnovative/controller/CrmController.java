@@ -2,18 +2,22 @@ package gr.codehub.crminnovative.controller;
 
 import gr.codehub.crminnovative.model.Customer;
 import gr.codehub.crminnovative.service.CustomerService;
+import gr.codehub.crminnovative.service.CustomerServiceAnotherImpl;
+import gr.codehub.crminnovative.service.CustomerServiceDbImpl;
 import gr.codehub.crminnovative.service.CustomerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class CrmController {
+    @Autowired
     private CustomerService customerService;
 
-    public CrmController() {
-        customerService = new CustomerServiceImpl();
-    }
+//    public CrmController() {
+//        customerService = new CustomerServiceDbImpl();
+//    }
 
     @RequestMapping("hello")
     public String getHello() {
